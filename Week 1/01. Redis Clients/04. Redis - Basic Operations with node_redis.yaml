@@ -1,0 +1,52 @@
+subject: Redis
+topic: Basic Operations with node_redis
+questions:
+  - question: What js construct is used to represent redis lists in `node_redis`
+    answers: 0
+    options:
+      - Array of strings
+      - Set
+      - Map
+  - question: What js construct is used to represent redis sets in `node_redis`
+    answers: 0
+    options:
+      - Array of strings
+      - Set
+      - Map
+  - question: What js construct is used to represent redis hashes in `node_redis`
+    answers: 0
+    options:
+      - Object
+      - Array of strings
+      - Set
+      - Map
+  - question: What js construct is used to represent redis floats in `node_redis`
+    answers: 0
+    options:
+      - String
+      - Number
+      - Object
+      - Array of strings
+      - Set
+      - Map
+  - question: What js construct is used to represent redis integer in `node_redis`
+    answers: 0
+    options:
+      - Number
+      - String
+      - Object
+      - Array of strings
+      - Set
+      - Map
+  - question: Does the node_redis client, converts the arguments into strings ?
+    answers: 0
+    options:
+      - Yes
+      - No
+  - question: Which of the following lines of code returns all of the elements in the Redis list "messages"?
+    answers: 0
+    options:
+      - "```js\nawait client.lrangeAsync('messages', 0, -1);\n```"
+      - "```js\nawait client.lrangeAsync('messages', 0, 1);\n```"
+      - "```js\nawait client.lrangeAsync('messages');\n```"
+      - "```js\nawait client.lrangeAsync('messages', null, null);\n```"
