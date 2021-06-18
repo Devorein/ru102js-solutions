@@ -11,6 +11,7 @@ questions:
       - Implement the Redis protocol
       - Provide a language specific api
       - Flush database after quitting
+      - Replicate data between Redis instances
   - question: Does the redis client manage the lifecycle of connected sockets to redis server ?
     answers: 0
     options:

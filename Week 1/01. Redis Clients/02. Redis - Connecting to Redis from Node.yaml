@@ -1,0 +1,85 @@
+subject: Redis
+topic: Connecting to Redis from Node.js
+questions:
+  - question: Which method is used to create a client using `node_redis` ?
+    answers: createClient
+  - question: What is the standard port for redis ?
+    answers: 6379
+  - question: What is the default host for redis ?
+    answers:
+      - - 127.0.0.1
+        - localhost
+  - question: Which of the following can be configured in the redis `createClient` method ?
+    answers:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+    options:
+      - password
+      - host
+      - port
+      - url
+      - ssl info
+  - question: Specify the url format for the default redis client configuration
+    answers:
+      - - redis://127.0.0.1:6379
+        - redis://localhost:6379
+  - question: Does the redis client attempts to reconnect to redis server after each failed attempt ?
+    answers: 0
+    options:
+      - Yes
+      - No
+  - question: Which of the following are events emitted by the redis client ?
+    answers:
+      - 0
+      - 1
+      - 2
+    options:
+      - ready
+      - end
+      - reconnecting
+      - start
+      - quit
+      - exit
+  - question: Which event is emitted when connection to Redis has been established and commands can be sent ?
+    answers: ready
+  - question: Which event is emitted when connection to Redis has been closed ?
+    answers: end
+  - question: Which event is emitted when connection to Redis was lost, and reconnection attempts are being made ?
+    answers: reconnecting
+  - question: Does the redis client buffer commands sent before the connection to the server has been established ?
+    answers: 0
+    options:
+      - Yes
+      - No
+  - question: Is it required to wait for the `ready` event to fire before sending commands to the client ?
+    answers:
+      text: 0
+      explanation: Since the redis client automatically buffers all the commands, its not required.
+    options:
+      - No
+      - Yes
+  - question:
+      -
+      - -threaded applications often maintain a set of open
+      - connections for
+      - reasons
+    answers:
+      - Multi
+      - database
+      - performance
+  - question: Where is connection pooling most evident ?
+    answers: 0
+    options:
+      - Multi Threaded applications
+      - Single Threaded applications
+  - question: Is connection pooling required for nodejs redis client ?
+    answers:
+      text: 0
+      explanation: Since the nodejs is single threaded
+    options:
+      - No
+      - Yes
+  - question:
