@@ -1,0 +1,40 @@
+subject: Redis
+topic: Asynchronous Programming with node_redis
+questions:
+  - question: Write the code to set `world` to the key `hello`, using `client`, skipping the callback
+    answers:
+      - text: client.set('hello','world');
+        modifiers:
+          - IS
+  - question: Write the code to get the value from the key `hello`, skipping the callback argument
+    answers: client.get('hello');
+  - question: Which of the following are valid ways to use the `node_redis` client ?
+    answers:
+      - 0
+      - 1
+      - 2
+    options:
+      - Using callback
+      - Using promises
+      - Using async/await
+  - question: Import the method to convert all callback to its promise counterpart from node
+    answers:
+      text: const { promisify } = require('util');
+      modifiers:
+        - IS
+  - question: Which bluebird method is used to convert all methods of an object into its promise counterpart ?
+    answers: promisifyAll
+  - question: Write the code to convert the callback based `client.set` method to a promise based one
+    answers: promisify(client.set)
+  - question: Write the bluebird counterpart of the `client.get` method
+    answers: client.getAsync
+  - question: Write the code to set `world` to the key `hello`, using `client`, after its been promisified using bluebird
+    answers:
+      text: await client.setAsync('hello', 'world');
+      modifiers:
+        - IS
+  - question: Write the code to get the key `hello`, using `client`, after its been promisified using bluebird
+    answers:
+      text: await client.getAsync('hello');
+      modifiers:
+        - IS
