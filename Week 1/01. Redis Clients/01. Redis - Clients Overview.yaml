@@ -1,0 +1,41 @@
+topic: Clients Overview
+subject: Redis
+questions:
+  - question: Which of the following is the purpose of a redis client ?
+    answers:
+      - 0
+      - 1
+      - 2
+    options:
+      - Manage a connection between client and server
+      - Implement the Redis protocol
+      - Provide a language specific api
+      - Flush database after quitting
+  - question: Does the redis client manage the lifecycle of connected sockets to redis server ?
+    answers: 0
+    options:
+      - Yes
+      - No
+  - question: Should redis clients provide connection pooling ?
+    answers: 0
+    options:
+      - Yes
+      - No
+  - question: What is the full form of RESP ?
+    answers: 0
+    options:
+      - Redis Serialization protocol
+      - Redis Server Protocol
+      - Redis Protocol
+      - Redis Connection Protocol
+  - question: Which of the following redis clients are recommended and well maintained ?
+    answers:
+      - 0
+      - 1
+    options:
+      - node_redis
+      - ioredis
+      - rebridge
+      - spade
+      - redis-node-client
+      - redis-fast-driver

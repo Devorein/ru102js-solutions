@@ -8,9 +8,9 @@
   },
   "private": true,
   "scripts": {
-    "dev": "./node_modules/nodemon/bin/nodemon.js",
+    "dev": "npx nodemon",
     "load": "node src/utils/data_loader.js --",
-    "lint": "./node_modules/eslint/bin/eslint.js src tests",
+    "lint": ".npx eslint src tests",
     "start": "node ./src/app.js",
     "test": "jest --no-colors",
     "testdev": "jest --watch"
@@ -35,13 +35,13 @@
     "winston": "^3.2.1"
   },
   "devDependencies": {
-    "babel-eslint": "^10.0.2",
+    "babel-eslint": "^10.1.0",
     "eslint": "^5.16.0",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-plugin-import": "^2.17.3",
-    "eslint-plugin-jsx-a11y": "^6.2.1",
-    "eslint-plugin-react": "^7.13.0",
-    "jest": "^24.8.0",
+    "eslint-config-airbnb": "^17.1.1",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.24.0",
+    "jest": "^24.9.0",
     "nodemon": "^1.19.4"
   }
 }

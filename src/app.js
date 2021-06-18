@@ -5,7 +5,6 @@ config.set('../config.json');
 
 const express = require('express');
 const morgan = require('morgan');
-const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
 const logger = require('./utils/logger');
@@ -16,7 +15,7 @@ const app = express();
 
 // Set up Express components.
 app.use(morgan('combined', { stream: logger.stream }));
-app.use(bodyParser.json());
+app.use(express.json());
 app.use(cors());
 
 // Serve the Vue files statically from the 'public' folder.
@@ -30,10 +29,14 @@ const port = config.get('application.port');
 // Start the server.
 app.listen(port, () => {
   banner();
-  logger.info(`RediSolar listening on port ${port}, using database: ${config.get('application.dataStore')}`);
+  logger.info(
+    `RediSolar listening on port ${port}, using database: ${config.get(
+      'application.dataStore'
+    )}`
+  );
 });
 
 // For test framework purposes...
 module.exports = {
-  app,
+  app
 };
