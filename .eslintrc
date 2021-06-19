@@ -12,6 +12,9 @@
     "no-console": "off",
     "no-restricted-syntax": "off",
     "no-prototype-builtins": "off",
-    "linebreak-style": "off"
+    "linebreak-style": "off",
+    "comma-dangle": "off",
+    "no-await-in-loop": "off",
+    "no-plusplus": "off"
   }
 }

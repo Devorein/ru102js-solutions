@@ -34,3 +34,19 @@ questions:
       - DAO implementations
       - DAO modules
       - DAO methods
+  - question: "A DAO interface module..."
+    answers: 0
+    options:
+      - Defines a data store agnostic API
+      - Interacts with a particular data store
+      - Is a pure data representation of a domain object
+      - Manages the lifecycle of the connection to Redis
+  - question: A DAO implementation module...
+    answers:
+      - 0
+      - 1
+    options:
+      - Interacts with a particular data store
+      - Implements the API defined by a corresponding DAO interface module
+      - Defines a data store agnostic API
+      - Is a pure data representation of a domain object

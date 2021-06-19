@@ -23,7 +23,7 @@ const remap = (siteHash) => {
   if (siteHash.hasOwnProperty('lat') && siteHash.hasOwnProperty('lng')) {
     remappedSiteHash.coordinate = {
       lat: parseFloat(siteHash.lat),
-      lng: parseFloat(siteHash.lng),
+      lng: parseFloat(siteHash.lng)
     };
 
     // Remove original fields from resulting object.
@@ -85,7 +85,7 @@ const findById = async (id) => {
 
   const siteHash = await client.hgetallAsync(siteKey);
 
-  return (siteHash === null ? siteHash : remap(siteHash));
+  return siteHash === null ? siteHash : remap(siteHash);
 };
 
 /* eslint-disable arrow-body-style */
@@ -95,9 +95,18 @@ const findById = async (id) => {
  * @returns {Promise} - a Promise, resolving to an array of site objects.
  */
 const findAll = async () => {
-  // START CHALLENGE #1
-  return [];
-  // END CHALLENGE #1
+  const client = redis.getClient();
+  const siteHashKeys = await client.smembersAsync(keyGenerator.getSiteIDsKey());
+  const sites = [];
+  for (let index = 0; index < siteHashKeys.length; index++) {
+    const siteHashKey = siteHashKeys[index];
+    const siteHash = await client.hgetallAsync(siteHashKey);
+    const site = siteHash ? remap(siteHash) : null;
+    if (site) {
+      sites.push(site);
+    }
+  }
+  return sites;
 };
 /* eslint-enable */
 
@@ -135,7 +144,7 @@ module.exports = {
   findById,
   findAll,
   findByGeo,
-  findByGeoWithExcessCapacity,
+  findByGeoWithExcessCapacity
 };
 
 /* eslint-enable no-unused-vars */
