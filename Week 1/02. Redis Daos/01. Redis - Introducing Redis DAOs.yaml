@@ -1,0 +1,36 @@
+subject: Redis
+topic: Introducing Redis DAOs
+questions:
+  - question: What does dao stand for ?
+    answers: 0
+    options:
+      - Data access object
+      - Data access origin
+      - Date access object
+      - Date access origin
+  - question:
+      - Dao is a design
+      - that decouples
+      - access from the
+      - used to access the data.
+    answers:
+      - pattern
+      - data
+      - interface
+  - question: Which of the following are part of the dao pattern ?
+    answers:
+      - 0
+      - 1
+      - 2
+    options:
+      - Domain objects
+      - DAO interfaces
+      - DAO implementations
+      - DAO modules
+  - question: Which part of DAO stores data-store agnostic API ?
+    answers: 0
+    options:
+      - DAO interfaces
+      - DAO implementations
+      - DAO modules
+      - DAO methods
