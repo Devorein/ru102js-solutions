@@ -1,0 +1,68 @@
+subject: Redis
+topic: Pipelining
+questions:
+  - question: What does redis pipelining solve ?
+    answers: 0
+    options:
+      - Reduce the number of round trips to the server
+      - Reduces the number of commands executed
+      - Reduces the execution time of the commands
+  - question:
+      -
+      - allows to
+      - multiple
+      - in a single
+      - trip
+    answers:
+      - Pipelining
+      - execute
+      - commands
+      - round
+  - question: Why is pipelining efficient ?
+    answers:
+      - 0
+      - 1
+      - 2
+    options:
+      - Reduces the number of trips overhead
+      - Reduces the latency
+      - Reduces the number of syscalls the client has to make
+      - Reduces the number of commands to be executed
+      - Reduces the execution time of the commands
+  - question:
+      - Client
+      - the command,
+      - writes the
+      - to the
+      - and reads the
+      - .
+    answers:
+      - serializes
+      - command
+      - socket
+      - response
+  - question: Pipelining is used to buffer a series of commands and sending them to the server in a batch ?
+    answers: 0
+    options:
+      - Yes
+      - No
+  - question: What does the pipelined commands return ?
+    answers: 0
+    options:
+      - Result of all the command executed
+      - Result of the last executed command
+      - Result of the first executed command
+      - OK
+      - 1
+      - Number of commands executed
+  - question: Which method is used to create a pipeline in node_redis ?
+    answers: batch
+  - question: Which command is used to send the batched commands in a pipeline to be executed ?
+    answers: execAsync
+  - question: What does `pipeline.execAsync` return ?
+    answers: 0
+    options:
+      - An array of responses
+      - An object of all the responses
+      - A set of all the responses
+      - String "OK"
