@@ -58,11 +58,60 @@ questions:
   - question: Which method is used to create a pipeline in node_redis ?
     answers: batch
   - question: Which command is used to send the batched commands in a pipeline to be executed ?
-    answers: execAsync
-  - question: What does `pipeline.execAsync` return ?
+    answers: exec
+  - question: What does `pipeline.exec` return ?
     answers: 0
     options:
       - An array of responses
       - An object of all the responses
       - A set of all the responses
       - String "OK"
+  - question: Which types of operation can you perform inside of a node_redis pipeline?
+    answers:
+      text: 0
+      explanation: A pipeline can be used to perform any combination of Redis commands, regardless of whether they perform reads or writes.
+    options:
+      - Any combination of reads and writes
+      - Either reads or writes, but not both in the same pipeline
+      - Only writes
+      - Only reads
+  - question: Is there a difference between redis pipeline and transaction ?
+    answers: 0
+    options:
+      - Yes
+      - No
+  - question: Is all the commands in a pipeline executed atomically ?
+    answers: 0
+    options:
+      - No
+      - Yes
+  - question: Does the server blocks until all the commands of a pipeline has been executed ?
+    answers:
+      text: 0
+      explanation: The server will continue to receive commands and if there other commands sent by another client, it will execute it.
+    options:
+      - No
+      - Yes
+  - question: Is the pipeline order preserved in a pipeline ?
+    answers:
+      text: 0
+      explanation: Any intermediary commands will be executed along with the pipeline commands
+    options:
+      - No
+      - Yes
+  - question: Does redis pipeline return the result of each command immediately ?
+    answers:
+      text: 0
+      explanation: Pipelining returns the result of all commands after all of them have been executed
+    options:
+      - No
+      - Yes
+  - question: When should pipeline be used ?
+    answers:
+      - 0
+      - 1
+    options:
+      - Two or more commands to execute
+      - Can wait for the response of all commands at once
+      - Atomic execution of commands
+      - Blocking other clients while executing the commands of the pipeline
