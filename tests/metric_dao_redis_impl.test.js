@@ -30,7 +30,7 @@ beforeAll(() => {
       whUsed: n,
       whGenerated: n,
       tempC: n,
-      dateTime: time,
+      dateTime: time
     };
 
     sampleReadings.push(reading);
@@ -64,7 +64,12 @@ const testInsertAndRetrieve = async (limit) => {
   /* eslint-enable no-await-in-loop */
 
   // Retrieve up to 'limit' metrics back.
-  const measurements = await redisMetricDAO.getRecent(1, 'whGenerated', timeUtils.getCurrentTimestamp(), limit);
+  const measurements = await redisMetricDAO.getRecent(
+    1,
+    'whGenerated',
+    timeUtils.getCurrentTimestamp(),
+    limit
+  );
 
   // Make sure we got the right number back.
   expect(measurements.length).toEqual(limit);
@@ -78,12 +83,14 @@ const testInsertAndRetrieve = async (limit) => {
 };
 
 // This test is for Challenge #2.
-test.skip(`${testSuiteName}: test 1 reading`, async () => testInsertAndRetrieve(1));
+test(`${testSuiteName}: test 1 reading`, async () => testInsertAndRetrieve(1));
 
 // This test is for Challenge #2.
-test.skip(`${testSuiteName}: test 1 day of readings`, async () => testInsertAndRetrieve(60 * 24));
+test(`${testSuiteName}: test 1 day of readings`, async () =>
+  testInsertAndRetrieve(60 * 24));
 
 // This test is for Challenge #2.
-test.skip(`${testSuiteName}: test multiple days of readings`, async () => testInsertAndRetrieve(60 * 70));
+test(`${testSuiteName}: test multiple days of readings`, async () =>
+  testInsertAndRetrieve(60 * 70));
 
 /* eslint-enable */
