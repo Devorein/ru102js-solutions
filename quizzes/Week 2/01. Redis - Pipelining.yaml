@@ -115,3 +115,24 @@ questions:
       - Can wait for the response of all commands at once
       - Atomic execution of commands
       - Blocking other clients while executing the commands of the pipeline
+  - question: Which techniques can you use to atomically execute two or more Redis commands?
+    answers:
+      - 0
+      - 1
+    options:
+      - Transactions
+      - Lua Scripting
+      - Pipelining
+      - Connection pooling
+      - Batching
+  - question: Which techniques can you use to execute two or more Redis commands?
+    answers:
+      - 0
+      - 1
+      - 2
+    options:
+      - Transactions
+      - Lua Scripting
+      - Pipelining
+      - Connection pooling
+      - Batching
