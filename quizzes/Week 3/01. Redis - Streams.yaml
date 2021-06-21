@@ -1,0 +1,55 @@
+topic: Streams
+subject: Redis
+questions:
+  - question: What is redis stream ?
+    answers: 0
+    options:
+      - A redis data structure
+      - A redis concept
+      - A redis specific solution to a problem
+  - question: What sort of log is a redis stream ?
+    answers: 0
+    options:
+      - Append only
+      - Remove only
+      - Both append and remove
+  - question: Which command is used to enter an entry to a redis stream ?
+    answers: xadd
+  - question: Which of the following is the syntax of the `xadd` command ?
+    answers: 0
+    options:
+      - xadd stream-name id field-value_pairs
+      - xadd stream-name id value
+      - xadd stream-name field-value_pairs
+  - question: Which of the following commands are used to retrieve data from a redis stream ?
+    answers:
+      - 0
+      - 1
+    options:
+      - xrange
+      - xrevrange
+      - xget
+      - xgetall
+  - question: Which command is used to read entries from oldest to newest ?
+    answers: xrange
+  - question: Which command is used to read entries from newest to oldest ?
+    answers: xrevrange
+  - question: Which character is used to indicate to the redis server to generate an unique stream id ?
+    answers: "*"
+  - question: What does the `xadd` command return ?
+    answers: 0
+    options:
+      - Id of the entry added to the log
+      - 1 for success, 0 for failure
+      - nil
+      - OK
+      - Total entries of the log
+  - question: Which argument is used in `xadd` which keeps the stream from growing beyond a specified number of entries ?
+    answers: maxlen
+  - question: Get the latest entry from the `stream` stream
+    answers: xrevrange steam + - count 1
+  - question: In theory are redis streams infinite ?
+    answers: 0
+    options:
+      - Yes
+      - No
