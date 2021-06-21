@@ -38,14 +38,14 @@ test(`${testSuiteName}: update`, async () => {
     dateTime: Math.floor(new Date().getTime() / 1000),
     whUsed: 12,
     whGenerated: 20,
-    tempC: 20,
+    tempC: 20
   };
 
   await redisCapacityDAO.update(testReading);
 
   const score = await client.zscoreAsync(
     keyGenerator.getCapacityRankingKey(),
-    testReading.siteId,
+    testReading.siteId
   );
 
   // Remember score will come back as a string, so ensure it is
@@ -57,38 +57,38 @@ test(`${testSuiteName}: getReport`, async () => {
   const entries = [
     {
       id: 1,
-      score: 10,
+      score: 10
     },
     {
       id: 2,
-      score: 15,
+      score: 15
     },
     {
       id: 3,
-      score: 30,
+      score: 30
     },
     {
       id: 4,
-      score: 20,
+      score: 20
     },
     {
       id: 5,
-      score: 50,
+      score: 50
     },
     {
       id: 6,
-      score: -4,
-    },
+      score: -4
+    }
   ];
 
   await Promise.all(
-    entries.map(
-      site => client.zaddAsync(
+    entries.map((site) =>
+      client.zaddAsync(
         keyGenerator.getCapacityRankingKey(),
         site.score,
-        site.id,
-      ),
-    ),
+        site.id
+      )
+    )
   );
 
   const report = await redisCapacityDAO.getReport(2);
@@ -97,60 +97,60 @@ test(`${testSuiteName}: getReport`, async () => {
     lowestCapacity: [
       {
         siteId: 6,
-        capacity: -4,
+        capacity: -4
       },
       {
         siteId: 1,
-        capacity: 10,
-      },
+        capacity: 10
+      }
     ],
     highestCapacity: [
       {
         siteId: 5,
-        capacity: 50,
+        capacity: 50
       },
       {
         siteId: 3,
-        capacity: 30,
-      },
-    ],
+        capacity: 30
+      }
+    ]
   });
 });
 
 // This test is for Challenge #4.
-test.skip(`${testSuiteName}: getRank`, async () => {
+test.only(`${testSuiteName}: getRank`, async () => {
   // Create some data
   const entries = [
     {
       id: 1,
-      score: 10,
+      score: 10
     },
     {
       id: 2,
-      score: 15,
+      score: 15
     },
     {
       id: 3,
-      score: 30,
+      score: 30
     },
     {
       id: 4,
-      score: 20,
+      score: 20
     },
     {
       id: 5,
-      score: 50,
-    },
+      score: 50
+    }
   ];
 
   await Promise.all(
-    entries.map(
-      site => client.zaddAsync(
+    entries.map((site) =>
+      client.zaddAsync(
         keyGenerator.getCapacityRankingKey(),
         site.score,
-        site.id,
-      ),
-    ),
+        site.id
+      )
+    )
   );
 
   let result = await redisCapacityDAO.getRank(1);

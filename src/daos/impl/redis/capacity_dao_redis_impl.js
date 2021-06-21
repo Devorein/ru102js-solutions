@@ -14,7 +14,7 @@ const remap = (arr) => {
   for (let n = 0; n < arr.length; n += 2) {
     remapped.push({
       siteId: parseInt(arr[n], 10),
-      capacity: parseFloat(arr[n + 1]),
+      capacity: parseFloat(arr[n + 1])
     });
   }
 
@@ -33,7 +33,7 @@ const update = async (meterReading) => {
   await client.zaddAsync(
     keyGenerator.getCapacityRankingKey(),
     currentCapacity,
-    meterReading.siteId,
+    meterReading.siteId
   );
 };
 
@@ -54,7 +54,7 @@ const getReport = async (limit) => {
 
   return {
     lowestCapacity: remap(results[0]),
-    highestCapacity: remap(results[1]),
+    highestCapacity: remap(results[1])
   };
 };
 
@@ -67,9 +67,9 @@ const getRank = async (siteId) => {
   // START Challenge #4
   const client = redis.getClient();
 
-  const result = await client.zrankAsync(
+  const result = await client.zrevrankAsync(
     keyGenerator.getCapacityRankingKey(),
-    `${siteId}`,
+    `${siteId}`
   );
 
   return result;
@@ -79,5 +79,5 @@ const getRank = async (siteId) => {
 module.exports = {
   update,
   getReport,
-  getRank,
+  getRank
 };
