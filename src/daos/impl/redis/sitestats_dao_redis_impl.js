@@ -67,32 +67,35 @@ const updateOptimized = async (meterReading) => {
     meterReading.siteId,
     meterReading.dateTime
   );
+  await compareAndUpdateScript.load();
 
   const transaction = await client.multi();
   transaction.hset(key, 'lastReportingTime', timeUtils.getCurrentTimestamp());
   transaction.hincrby(key, 'meterReadingCount', 1);
   transaction.expire(key, weekSeconds);
-  await transaction.execAsync();
   // Load script if needed, uses cached SHA if already loaded.
-  await compareAndUpdateScript.load();
-  const readingCapacity = meterReading.whGenerated - meterReading.whUsed;
-  await client.evalshaAsync(
+  transaction.evalshaAsync(
     compareAndUpdateScript.updateIfGreater(
       key,
       'maxWhGenerated',
       meterReading.whGenerated
     )
   );
-  await client.evalshaAsync(
+  transaction.evalshaAsync(
     compareAndUpdateScript.updateIfLess(
       key,
       'minWhGenerated',
       meterReading.whGenerated
     )
   );
-  await client.evalshaAsync(
-    compareAndUpdateScript.updateIfGreater(key, 'maxCapacity', readingCapacity)
+  transaction.evalshaAsync(
+    compareAndUpdateScript.updateIfGreater(
+      key,
+      'maxCapacity',
+      meterReading.whGenerated - meterReading.whUsed
+    )
   );
+  await transaction.execAsync();
 };
 /* eslint-enable */
 
