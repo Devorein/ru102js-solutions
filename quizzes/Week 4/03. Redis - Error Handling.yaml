@@ -1,0 +1,53 @@
+subject: Redis
+topic: Error Handling
+questions:
+  - question: Which key is used to give a custom retry strategy for node_redis ?
+    answers: retry_strategy
+  - question: Which of the following infos does the node_redis error object contain ?
+    answers:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+    options:
+      - name
+      - message
+      - command
+      - args
+      - code
+      - values
+  - question: Does node_redis buffer the commands sent to the redis server while the connection has not been established yet ?
+    answers: 0
+    options:
+      - Yes
+      - No
+  - question: Which of the following is expected to be returned from retry_strategy ?
+    answers:
+      - 0
+      - 1
+    options:
+      - A number indicating the number of seconds to wait until next retry attempt
+      - null to indicate that stop retrying
+      - Boolean to continue retry attempts
+  - question: Does node_redis throws an error when executing commands in a transaction ?
+    answers: 0
+    options:
+      - No
+      - Yes
+  - question: Does node_redis throws an error when executing commands in a pipeline ?
+    answers: 0
+    options:
+      - No
+      - Yes
+  - question: Which of the following infos are available in the retry object ?
+    answers:
+      - 0
+      - 1
+    options:
+      - Number of retry attempts
+      - Time until last retry
+      - Total retry time
+      - Number of retries left
+  - question: Which event is emitted when node_redis retries connection to redis server ?
+    answers: reconnecting
