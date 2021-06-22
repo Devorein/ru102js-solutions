@@ -1,0 +1,37 @@
+subject: Redis
+topic: Timeseries
+questions:
+  - question: Which of the following are redis module ?
+    answers:
+      - 0
+      - 1
+      - 2
+    options:
+      - Redis Timeseries
+      - Redis Search
+      - Redis Graph
+      - Redis Relation
+      - Redis Stream
+  - question: What does a redis timeseries consist of ?
+    answers: 0
+    options:
+      - A tuple consisting of timestamp and a measurement
+      - A tuple consisting of measurement and a timestamp
+      - An array of timestamps
+  - question: Does redis timeseries support max retention settings ?
+    answers: 0
+    options:
+      - Yes
+      - No
+  - question: Write the command to load the redis timeseries module which is located at `/ts/ts.so`
+    answers: redis-server --loadmodule /ts/ts.so
+  - question: Which command is used to add a sample to a timeseries ?
+    answers: ts.add
+  - question: Add a sample with timestamp 123 and value 18 to the timeseries `ts`
+    answers: ts.add ts 123 18
+  - question: Which command is used to get samples from a timeseries within timestamp ?
+    answers: ts.range
+  - question: Get all the samples from the timeseries `ts` within the timestamp 123 and 124
+    answers: ts.range ts 123 124
+  - question: Get all the samples from the timeseries `ts` within the timestamp 123 and 124, by grouping them into 2 milliseconds and applying the average aggregation
+    answers: ts.range ts 123 124 aggregate avg 2
