@@ -27,7 +27,7 @@ questions:
       - 0
       - 1
     options:
-      - A number indicating the number of seconds to wait until next retry attempt
+      - A number indicating the number of milliseconds to wait until next retry attempt
       - null to indicate that stop retrying
       - Boolean to continue retry attempts
   - question: Does node_redis throws an error when executing commands in a transaction ?

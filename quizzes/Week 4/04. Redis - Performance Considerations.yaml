@@ -1,0 +1,42 @@
+subject: Redis
+topic: Performance Considerations
+questions:
+  - question: Which of the following are part of performance considerations ?
+    answers:
+      - 0
+      - 1
+      - 2
+    options:
+      - Network latency
+      - Time complexity
+      - Atomicity and blocking
+      - Number of commands
+      - Data structures used
+  - question: Does redis-server queues up incoming commands while the current command is being executed ?
+    answers: 0
+    options:
+      - Yes
+      - No
+  - question: Which of the following is true ?
+    answers: 0
+    options:
+      - O(1) < O(Log(N)) < O(N)
+      - O(N) < O(1) < O(Log(N))
+      - O(N) < O(Log(N)) < O(1)
+      - O(Log(N)) < O(N) < O(1)
+  - question: Which of the following commands should never be executed on a production redis server ?
+    answers: 0
+    options:
+      - keys
+      - sadd
+      - hgetall
+      - zrange
+      - lrange
+  - question: Which of the following blocks a redis server ?
+    answers:
+      - 0
+      - 1
+    options:
+      - transaction
+      - Lua scripting
+      - Pipeline
