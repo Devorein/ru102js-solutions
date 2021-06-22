@@ -1,0 +1,33 @@
+subject: Redis
+topic: Blocking Commands
+questions:
+  - question: What is the blocking version of `rpop` ?
+    answers: brpop
+  - question: Using the blocking version of `rpop` get the last item of the `list` and wait for a timeout of 10 seconds
+    answers: brpop list 10
+  - question: Using the blocking version of `rpop` get the last item of the `list` and wait for until a value appears ?
+    answers: brpop list 0
+  - question: Is the Redis server blocked when a client is blocked ?
+    answers: 0
+    options:
+      - No
+      - Yes
+  - question: What is the drawbacks of using blocking commands ?
+    answers: 0
+    options:
+      - A need to manage a separate redis client to send commands while the current client is blocked
+      - A constant need to poll the redis server to get the latest value
+      - Blocks the redis server until the command has been executed
+  - question: Redis provides blocking commands for which of the data structures ?
+    answers:
+      - 0
+      - 1
+      - 2
+      - 3
+    options:
+      - Lists
+      - Sorted sets
+      - Streams
+      - Publish/Subscribe
+      - Hashes
+      - Sets

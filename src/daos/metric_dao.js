@@ -1,7 +1,7 @@
 const daoLoader = require('./daoloader');
 
 // Week 4, change this from 'metric' to 'metric_ts'.
-const impl = daoLoader.loadDao('metric');
+const impl = daoLoader.loadDao('metric_ts');
 
 module.exports = {
   /**
@@ -9,7 +9,7 @@ module.exports = {
    * @param {Object} meterReading - the meter reading to insert.
    * @returns {Promise} - Promise that resolves when the operation is completed.
    */
-  insert: async meterReading => impl.insert(meterReading),
+  insert: async (meterReading) => impl.insert(meterReading),
 
   /**
    * Get recent metrics for a specific solar site on a given date with
@@ -20,10 +20,6 @@ module.exports = {
    * @param {number} limit - maximum number of metrics to be returned.
    * @returns {Promise} - Promise resolving to an array of measurement objects.
    */
-  getRecent: async (siteId, metricUnit, timestamp, limit) => impl.getRecent(
-    siteId,
-    metricUnit,
-    timestamp,
-    limit,
-  ),
+  getRecent: async (siteId, metricUnit, timestamp, limit) =>
+    impl.getRecent(siteId, metricUnit, timestamp, limit)
 };
